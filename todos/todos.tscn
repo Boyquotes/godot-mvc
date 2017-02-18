@@ -1,0 +1,211 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://todos/theme.tres" type="Theme" id=1]
+[ext_resource path="res://todos/todos_view.gd" type="Script" id=2]
+[ext_resource path="res://todos/source_code_pro.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 50
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
+
+[node name="Todo" type="Panel"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 2 )
+
+[node name="ui" type="VBoxContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 10.0
+custom_constants/separation = 10
+alignment = 0
+
+[node name="todos" type="Label" parent="ui"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 63.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.78125, 0.726318, 0.726318, 1 )
+custom_colors/font_color_shadow = Color( 0.792969, 0.45224, 0.45224, 1 )
+text = "Todos"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="input" type="LineEdit" parent="ui"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 73.0
+margin/right = 1004.0
+margin/bottom = 98.0
+placeholder/alpha = 0.6
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="content" type="ScrollContainer" parent="ui"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 108.0
+margin/right = 1004.0
+margin/bottom = 530.0
+scroll/horizontal = true
+scroll/vertical = true
+
+[node name="items" type="VBoxContainer" parent="ui/content"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+custom_constants/separation = 2
+alignment = 0
+
+[node name="bottom" type="HBoxContainer" parent="ui"]
+
+editor/display_folded = true
+rect/min_size = Vector2( 0, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 540.0
+margin/right = 1004.0
+margin/bottom = 580.0
+custom_constants/separation = 10
+alignment = 0
+__meta__ = { "_edit_lock_":true }
+
+[node name="left_num" type="Label" parent="ui/bottom"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 7.0
+margin/right = 374.0
+margin/bottom = 32.0
+text = "4444"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="filter_all" type="Button" parent="ui/bottom"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 384.0
+margin/top = 0.0
+margin/right = 424.0
+margin/bottom = 40.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "All"
+flat = false
+
+[node name="filter_active" type="Button" parent="ui/bottom"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 434.0
+margin/top = 0.0
+margin/right = 510.0
+margin/bottom = 40.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Active"
+flat = false
+
+[node name="filter_complete" type="Button" parent="ui/bottom"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 520.0
+margin/top = 0.0
+margin/right = 620.0
+margin/bottom = 40.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Complete"
+flat = false
+
+[node name="clear_complete" type="Button" parent="ui/bottom"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 630.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 40.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ClearComplete"
+flat = false
+
+[connection signal="text_entered" from="ui/input" to="." method="_on_input_text_entered"]
+
+[connection signal="pressed" from="ui/bottom/filter_all" to="." method="_on_filter_change" binds= [ "SHOW_ALL" ]]
+
+[connection signal="pressed" from="ui/bottom/filter_active" to="." method="_on_filter_change" binds= [ "SHOW_ACTIVE" ]]
+
+[connection signal="pressed" from="ui/bottom/filter_complete" to="." method="_on_filter_change" binds= [ "SHOW_COMPLETE" ]]
+
+[connection signal="pressed" from="ui/bottom/clear_complete" to="." method="_on_clear_complete"]
+
+
