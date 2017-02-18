@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://todos/theme.tres" type="Theme" id=1]
+[ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://todos/source_code_pro.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 50
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 3 )
+
+[node name="main" type="Panel"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 2 )
+
+[node name="title" type="Label" parent="."]
+
+anchor/right = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 35.0
+custom_fonts/font = SubResource( 1 )
+text = "Godot MVC Examples"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="container" type="ScrollContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 10.0
+margin/top = 101.0
+margin/right = 10.0
+margin/bottom = 10.0
+scroll/horizontal = false
+scroll/vertical = true
+
+[node name="buttons" type="VBoxContainer" parent="container"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 65.0
+custom_constants/separation = 5
+alignment = 1
+
+[node name="todos" type="Button" parent="container/buttons"]
+
+rect/min_size = Vector2( 200, 30 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 30.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "TODOs"
+flat = false
+
+[node name="calculator" type="Button" parent="container/buttons"]
+
+rect/min_size = Vector2( 200, 30 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 35.0
+margin/right = 1004.0
+margin/bottom = 65.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Calculator"
+flat = false
+
+[connection signal="pressed" from="container/buttons/todos" to="." method="show_todos"]
+
+[connection signal="pressed" from="container/buttons/calculator" to="." method="show_calculator"]
+
+

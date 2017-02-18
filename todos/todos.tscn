@@ -8,7 +8,7 @@
 
 font/size = 50
 font/use_mipmaps = false
-font/use_filter = false
+font/use_filter = true
 font/font = ExtResource( 3 )
 
 [node name="Todo" type="Panel"]
@@ -28,6 +28,7 @@ script/script = ExtResource( 2 )
 
 [node name="ui" type="VBoxContainer" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -198,6 +199,24 @@ shortcut = null
 text = "ClearComplete"
 flat = false
 
+[node name="close" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 4.0
+margin/bottom = 29.0
+custom_colors/font_color_disabled = Color( 0.917969, 0.129089, 0.129089, 1 )
+custom_colors/font_color = Color( 1, 0.421875, 0.421875, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Close"
+flat = false
+
 [connection signal="text_entered" from="ui/input" to="." method="_on_input_text_entered"]
 
 [connection signal="pressed" from="ui/bottom/filter_all" to="." method="_on_filter_change" binds= [ "SHOW_ALL" ]]
@@ -207,5 +226,7 @@ flat = false
 [connection signal="pressed" from="ui/bottom/filter_complete" to="." method="_on_filter_change" binds= [ "SHOW_COMPLETE" ]]
 
 [connection signal="pressed" from="ui/bottom/clear_complete" to="." method="_on_clear_complete"]
+
+[connection signal="pressed" from="close" to="." method="queue_free"]
 
 

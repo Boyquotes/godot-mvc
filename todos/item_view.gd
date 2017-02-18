@@ -1,9 +1,10 @@
 extends Control
 
-var MVC = preload("res://addons/com.geequlim.mvc/mvc.gd")
+var viewModel = null
 
-func bind_viewMode(viewMode):
-	viewMode.bind_view(self, "_set_item_data")
+func bind_viewModel(vm):
+	vm.bind_view(self, "_set_item_data")
+	viewModel = vm
 
 func _set_item_data( value ):
 	get_node("input").set_text(value.content)
@@ -11,16 +12,21 @@ func _set_item_data( value ):
 	get_node("check").set_pressed(value.complete)
 
 func _exit_tree():
-	MVC.get_viewModel(self).unbind_view(self)
+	if viewModel != null:
+		viewModel.unbind_view(self)
 
 func _ready():
-	MVC.get_viewModel(self).update_view(self)
+	if viewModel != null:
+		viewModel.update_view(self)
 
 func _on_toggled( selected ):
-	MVC.get_viewModel(self).set_complete( selected )
+	if viewModel != null:
+		viewModel.set_complete( selected )
 
 func _on_text_changed( text ):
-	MVC.get_viewModel(self).set_content(text)
+	if viewModel != null:
+		viewModel.set_content(text)
 
 func _on_del():
-	MVC.get_viewModel(self).destory()
+	if viewModel != null:
+		viewModel.destory()

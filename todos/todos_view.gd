@@ -1,18 +1,15 @@
 extends Panel
-var MVC = preload("res://addons/com.geequlim.mvc/mvc.gd")
-var ViewMode = preload("res://todos/todos.gd")
-var TodosModel = ViewMode.TodosModel
-
-var model = TodosModel.new()
-var viewMode = MVC.create_viewModel(model, ViewMode)
 
 var ClassItem = preload("res://todos/item.tscn")
+var viewModel = null
 
-func _init():
-	viewMode.bind_view(self, "_update")
+func bind_viewModel(vm):
+	vm.bind_view(self, "_update")
+	viewModel = vm
 
 func _ready():
-	viewMode.value = viewMode.value
+	if viewModel != null:
+		viewModel.update_view(self)
 
 func _update(todos):
 	for view in get_node("ui/content/items").get_children():
@@ -38,7 +35,7 @@ func _update(todos):
 			continue
 		# create item view
 		var itemview = ClassItem.instance()
-		itemview.bind_viewMode(item)
+		itemview.bind_viewModel(item)
 		itemview.set_h_size_flags(SIZE_EXPAND_FILL)
 		get_node("ui/content/items").add_child(itemview)
 	if active_count > 1:
@@ -54,8 +51,10 @@ func _on_input_text_entered( text ):
 
 
 func _on_filter_change( filter ):
-	MVC.get_viewModel(self).set_filter(filter)
+	if viewModel != null:
+		viewModel.set_filter(filter)
 
 
 func _on_clear_complete():
-	MVC.get_viewModel(self).clear_complete()
+	if viewModel != null:
+		viewModel.clear_complete()

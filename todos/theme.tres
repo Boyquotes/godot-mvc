@@ -4,7 +4,7 @@
 [ext_resource path="res://todos/btn_unchecked.png" type="Texture" id=2]
 [ext_resource path="res://todos/source_code_pro.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=1]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -17,7 +17,7 @@ border_size = 2
 border_blend = true
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -43,7 +43,7 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=4]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -56,16 +56,16 @@ border_size = 0
 border_blend = true
 draw_bg = true
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 
 font/size = 20
 font/use_mipmaps = false
-font/use_filter = false
+font/use_filter = true
 font/font = ExtResource( 3 )
 
 [resource]
 
-default_font = SubResource( 1 )
+default_font = SubResource( 5 )
 Button/colors/font_color = Color( 0.15625, 0.142822, 0.142822, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -74,9 +74,9 @@ Button/constants/hseparation = 0
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = SubResource( 5 )
-Button/styles/normal = SubResource( 5 )
-Button/styles/pressed = SubResource( 5 )
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 1 )
+Button/styles/pressed = SubResource( 1 )
 ButtonGroup/styles/panel = null
 CheckBox/colors/font_color = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -211,7 +211,7 @@ LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
 LineEdit/colors/selection_color = Color( 0.972656, 0.528122, 0.601053, 0.606235 )
 LineEdit/constants/minimum_spaces = 10
 LineEdit/fonts/font = null
-LineEdit/styles/focus = SubResource( 4 )
+LineEdit/styles/focus = SubResource( 2 )
 LineEdit/styles/normal = SubResource( 3 )
 LineEdit/styles/read_only = SubResource( 3 )
 LinkButton/colors/font_color = Color( 0, 0, 0, 1 )
@@ -247,10 +247,10 @@ OptionButton/styles/focus = null
 OptionButton/styles/hover = null
 OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
-Panel/styles/Panel = SubResource( 2 )
-Panel/styles/panel = SubResource( 2 )
-Panel/styles/panelf = SubResource( 2 )
-Panel/styles/panelnc = SubResource( 2 )
+Panel/styles/Panel = SubResource( 4 )
+Panel/styles/panel = SubResource( 4 )
+Panel/styles/panelf = SubResource( 4 )
+Panel/styles/panelnc = SubResource( 4 )
 PanelContainer/styles/panel = null
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
 PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )

@@ -1,0 +1,522 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://todos/theme.tres" type="Theme" id=1]
+[ext_resource path="res://calculator/calculator_view.gd" type="Script" id=2]
+[ext_resource path="res://todos/source_code_pro.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://calculator/Segment7Standard.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 35
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 100
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 60
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
+
+[node name="Calculator" type="Panel"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 2 )
+
+[node name="ui" type="VBoxContainer" parent="."]
+
+editor/display_folded = true
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 10.0
+alignment = 0
+
+[node name="history" type="LineEdit" parent="ui"]
+
+rect/min_size = Vector2( 0, 50 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+text = "100000 * 100"
+placeholder/alpha = 0.6
+align = 2
+editable = false
+focus_mode = 0
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="screen" type="LineEdit" parent="ui"]
+
+rect/min_size = Vector2( 0, 50 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 50.0
+margin/right = 1004.0
+margin/bottom = 150.0
+custom_fonts/font = SubResource( 2 )
+text = "100000 * 100"
+placeholder/alpha = 0.6
+align = 2
+editable = false
+focus_mode = 0
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[node name="buttons" type="VBoxContainer" parent="ui"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 150.0
+margin/right = 1004.0
+margin/bottom = 550.0
+alignment = 0
+
+[node name="c" type="HBoxContainer" parent="ui/buttons"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 80.0
+alignment = 0
+
+[node name="c" type="Button" parent="ui/buttons/c"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+size_flags/stretch_ratio = 2.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 502.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "C"
+flat = false
+
+[node name="del" type="Button" parent="ui/buttons/c"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 502.0
+margin/top = 0.0
+margin/right = 753.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "←"
+flat = false
+
+[node name="mod" type="Button" parent="ui/buttons/c"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 753.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "÷"
+flat = false
+
+[node name="789" type="HBoxContainer" parent="ui/buttons"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 80.0
+margin/right = 1004.0
+margin/bottom = 160.0
+alignment = 0
+
+[node name="7" type="Button" parent="ui/buttons/789"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 251.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "7"
+flat = false
+
+[node name="8" type="Button" parent="ui/buttons/789"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 251.0
+margin/top = 0.0
+margin/right = 502.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "8"
+flat = false
+
+[node name="9" type="Button" parent="ui/buttons/789"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 502.0
+margin/top = 0.0
+margin/right = 753.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "9"
+flat = false
+
+[node name="*" type="Button" parent="ui/buttons/789"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 753.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "×"
+flat = false
+
+[node name="456" type="HBoxContainer" parent="ui/buttons"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 160.0
+margin/right = 1004.0
+margin/bottom = 240.0
+alignment = 0
+
+[node name="4" type="Button" parent="ui/buttons/456"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 251.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "4"
+flat = false
+
+[node name="5" type="Button" parent="ui/buttons/456"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 251.0
+margin/top = 0.0
+margin/right = 502.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "5"
+flat = false
+
+[node name="6" type="Button" parent="ui/buttons/456"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 502.0
+margin/top = 0.0
+margin/right = 753.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "6"
+flat = false
+
+[node name="-" type="Button" parent="ui/buttons/456"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 753.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "-"
+flat = false
+
+[node name="123" type="HBoxContainer" parent="ui/buttons"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 240.0
+margin/right = 1004.0
+margin/bottom = 320.0
+alignment = 0
+
+[node name="1" type="Button" parent="ui/buttons/123"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 251.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "1"
+flat = false
+
+[node name="2" type="Button" parent="ui/buttons/123"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 251.0
+margin/top = 0.0
+margin/right = 502.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "2"
+flat = false
+
+[node name="3" type="Button" parent="ui/buttons/123"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 502.0
+margin/top = 0.0
+margin/right = 753.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "3"
+flat = false
+
+[node name="+" type="Button" parent="ui/buttons/123"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 753.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "+"
+flat = false
+
+[node name="0" type="HBoxContainer" parent="ui/buttons"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 320.0
+margin/right = 1004.0
+margin/bottom = 400.0
+alignment = 0
+
+[node name="1" type="Button" parent="ui/buttons/0"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 251.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "0"
+flat = false
+
+[node name="dot" type="Button" parent="ui/buttons/0"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+margin/left = 251.0
+margin/top = 0.0
+margin/right = 502.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "."
+flat = false
+
+[node name="=" type="Button" parent="ui/buttons/0"]
+
+rect/min_size = Vector2( 80, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 2
+size_flags/stretch_ratio = 2.0
+margin/left = 502.0
+margin/top = 0.0
+margin/right = 1004.0
+margin/bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "="
+flat = false
+
+[node name="close" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 4.0
+margin/bottom = 29.0
+custom_colors/font_color = Color( 1, 0.523438, 0.523438, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Close"
+flat = false
+
+[connection signal="pressed" from="close" to="." method="queue_free"]
+
+
