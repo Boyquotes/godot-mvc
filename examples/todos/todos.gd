@@ -1,6 +1,6 @@
 extends "res://addons/com.geequlim.mvc/view_model.gd"
 
-var Item = preload("res://todos/item.gd")
+var Item = preload("res://examples/todos/item.gd")
 var ItemModel = Item.ItemModel
 
 var MVC = preload("res://addons/com.geequlim.mvc/mvc.gd")

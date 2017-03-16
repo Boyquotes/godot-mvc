@@ -1,6 +1,6 @@
 extends Panel
 
-var ClassItem = preload("res://todos/item.tscn")
+var ClassItem = preload("res://examples/todos/item.tscn")
 var viewModel = null
 
 func bind_viewModel(vm):
@@ -53,7 +53,6 @@ func _on_input_text_entered( text ):
 func _on_filter_change( filter ):
 	if viewModel != null:
 		viewModel.set_filter(filter)
-
 
 func _on_clear_complete():
 	if viewModel != null:

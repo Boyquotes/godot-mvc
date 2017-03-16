@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://todos/item_view.gd" type="Script" id=1]
+[ext_resource path="res://examples/todos/item_view.gd" type="Script" id=1]
 
 [node name="Item" type="HBoxContainer"]
 
