@@ -21,8 +21,8 @@ func add_item( content ):
         itemmodel,
         Item,
         {
-            "destory_callback": Callback.new().setup(self, "remove_item"),
-            "invalidate": Callback.new().setup(self, "invalidate"),
+            "destory_callback": Callback.new(self, "remove_item"),
+            "invalidate": Callback.new(self, "invalidate"),
         }
     )
     self.value.items.append(item)
