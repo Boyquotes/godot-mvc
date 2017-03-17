@@ -29,6 +29,17 @@ var _model = null
 func bind_model(model):
 	_model = model
 
+# Parameters passed from parent ViewModel, Should NEVER be changed
+var _params = {}
+func _set_param(key, p_param):
+	_params[key] = p_param
+
+# Get parameter
+func get_param(key):
+	if _params.has(key):
+		return _params[key]
+	return null
+
 # The property value is pointed to the data of the binded `Model`
 var value = null setget set_value, get_value
 

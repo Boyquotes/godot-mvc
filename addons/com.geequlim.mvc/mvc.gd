@@ -61,7 +61,7 @@ static func create_viewModel(model, ViewModelScript, dict_params = {}):
         vm.bind_model(model)
         if typeof(dict_params) == TYPE_DICTIONARY:
             for key in dict_params.keys():
-                vm.set_param(key, dict_params[key])
+                vm._set_param(key, dict_params[key])
         else:
             vm = null
             # expect Dictionary params
